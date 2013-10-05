@@ -3,8 +3,12 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<div class="subheading">
 		<div class="container">
-			<div class="heading">
-				<h2><?php the_title();?><h2>
+			<div class="heading pull-left">
+				<h2><a href="<?php the_permalink();?>"><?php the_title();?></a><h2>
+			</div>
+			<div class="post-meta pull-right">
+				<h5>Posted on &nbsp;<i class="icon-calendar" > </i> <?php the_time('F jS, Y') ?>
+	 <span class="icon-user" > </sapn> by <?php the_author() ?><h5>
 			</div>
 		</div>
 	</div>
@@ -14,15 +18,12 @@
             bootstrapwp_breadcrumbs();
         } ?>
         </div><!--/.span12 -->
-			<h2><?php the_title(); ?></h2>
 		</div>
 
 
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8">
-												<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-
 						<?php the_content(); ?>
 						<?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
 						<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
